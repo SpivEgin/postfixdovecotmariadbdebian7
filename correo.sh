@@ -67,7 +67,7 @@ echo -e "\nCreando cuenta de correo $respuestacorreo...\n"
 
 echo -e "Generando certificado y asignación de permisos...\n"
 openssl req -new -newkey rsa:4096 -days 3650 -nodes -x509 -subj "/C=NO/ST=Denial/L=Nowhere/O=Dis/CN=$respuestadominio" -out /etc/dovecot/dovecot.pem -keyout /etc/dovecot/private/dovecot.pem
-chmod o= /etc/ssl/private/dovecot.pem
+chmod o= /etc/dovecot/private/dovecot.pem
 echo -e "Certificado generado\n"
 
 
