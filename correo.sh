@@ -28,6 +28,7 @@ aptitude install postfix postfix-mysql dovecot-core dovecot-imapd dovecot-pop3d 
 service postfix stop
 service dovecot stop
 
+sleep 4
 
 read -s -p "Introduzca clave de root de mariaDB: " passmariadb
 echo -e "\n"
@@ -873,7 +874,7 @@ EOF
 #Creando fichero /etc/dovecot/dovecot-sql.conf.ext   #
 ######################################################
 
-echo -n "Creando fichero /etc/dovecot/dovecot-sql.conf.ext...\n"
+echo -e "Creando fichero /etc/dovecot/dovecot-sql.conf.ext...\n"
 
 cat > /etc/dovecot/dovecot-sql.conf.ext <<EOF
 
