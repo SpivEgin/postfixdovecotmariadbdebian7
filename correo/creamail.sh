@@ -3,7 +3,7 @@
 read -s -p "Introduzca clave de root de mariaDB: " passmysql
 
 
-echo -n "\n---------- CREACIÓN DE CUENTAS DE CORREO -------------\n"
+echo -e "\n---------- CREACIÓN DE CUENTAS DE CORREO -------------\n"
 
 echo "Elija id del dominio para el cual quiere crear cuentas de correo:"
 

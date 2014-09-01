@@ -8,8 +8,8 @@ echo -n "Instalar mariadb?[s/n]: "
 read respuestamaria
 if [ "$respuestamaria" = "s" ]; then
 	echo -e "Añadiendo repositorios MariaDB...\n"
-	echo "deb http://mirror.stshosting.co.uk/mariadb/repo/5.5/debian wheezy main" >> /etc/apt/sources.list
-	echo "deb-src http://mirror.stshosting.co.uk/mariadb/repo/5.5/debian wheezy main" >> /etc/apt/sources.list
+	echo "deb http://mirror.stshosting.co.uk/mariadb/repo/10.0/debian wheezy main" >> /etc/apt/sources.list
+	echo "deb-src http://mirror.stshosting.co.uk/mariadb/repo/10.0/debian wheezy main" >> /etc/apt/sources.list
 	echo -e "Añadiendo clave GPG repositorios...\n"
 	apt-key adv --recv-keys --keyserver keyserver.ubuntu.com 0xcbcb082a1bb943db 
 	echo -e "Actualizando repositorios...\n"
@@ -181,7 +181,7 @@ service postfix stop
 ########################################
 #DOVECOT
 ###########################################################################
-#Necesitamos modicar 6 archivos de los cuales haremos copia primero
+#Necesitamos modificar 6 archivos de los cuales haremos copia primero
 ###########################################################################
 
 echo -e "Configurando Dovecot\n"
@@ -1231,6 +1231,12 @@ EOF
 #echo -e "Mostrando fichero recién configurado:  \n "
 
 #more /etc/dovecot/conf.d/10-ssl.conf
+
+##############################################################################
+# define la dirección de postmaster
+#############################################################################
+
+sed -i "s|#postmaster =|postmaster = $respuestacorreo|g" /etc/dovecot/conf.d/15-lda.conf
 
 echo -e "Dovecot configurado\n"
 
