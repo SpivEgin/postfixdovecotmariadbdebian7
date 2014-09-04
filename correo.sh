@@ -1236,7 +1236,7 @@ EOF
 # define la dirección de postmaster
 #############################################################################
 
-sed -i "s|#postmaster =|postmaster = $respuestacorreo|g" /etc/dovecot/conf.d/15-lda.conf
+sed -i "s|#postmaster_address =|postmaster_address = $respuestacorreo|g" /etc/dovecot/conf.d/15-lda.conf
 
 echo -e "Dovecot configurado\n"
 
