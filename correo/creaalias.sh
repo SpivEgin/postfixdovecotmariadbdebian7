@@ -14,7 +14,7 @@ read id
 echo -n "Escriba la dirección de correo a crear: "
 read correo
 
-echo -n "Escriba las direcciones de destino, una, o varias separadas por comas, <= 255: "
+echo -n "Escriba las direcciones de destino, una, o varias separadas por comas: "
 read destinos
 
 echo "INSERT INTO mailserver.virtual_aliases(domain_id, source, destination) VALUES('$id','$correo','$destinos');" | mysql -u root -p$passmysql

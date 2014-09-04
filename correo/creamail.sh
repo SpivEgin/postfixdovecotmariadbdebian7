@@ -15,10 +15,9 @@ read id
 while true; do
         echo -n "Escriba la nueva dirección de correo: "
         read email
-        echo -n "Escriba contraseña invisible: "
-        read -s contrasena
+        read -s -p "Introduzca clave de root de mariaDB: " contrasena
         echo " "
-        echo "INSERT INTO mailserver.virtual_users(domain_id, password , email)VALUES('$id', ENCRYPT('$contrasena', CONCAT('$6$', SUBSTRING(SHA(RAND()), -16))), '$email');" | mysql -uroot -p$passmysql
+        echo "INSERT INTO mailserver.virtual_users(domain_id, password , email)VALUES('$id', ENCRYPT('$contrasena', CONCAT('\$6\$', SUBSTRING(SHA(RAND()), -16))), '$email');" | mysql -uroot -p$passmysql
         echo "---- Cuenta creada ----"
         echo -n "¿Desea crear otra? (s/n): "
         read respuesta
