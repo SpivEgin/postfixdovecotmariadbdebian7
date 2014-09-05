@@ -62,7 +62,7 @@ read respuestacorreo
 echo -e "\n"
 
 read -s -p "Invente una clave para $respuestacorreo: " passcorreo
-echo "INSERT INTO mailserver.virtual_users(domain_id, password, email) VALUES('1', ENCRYPT('$passcorreo', CONCAT('$6$', SUBSTRING(SHA(RAND()), -16))), '$respuestacorreo');" | mysql -uroot -p$passmariadb
+echo "INSERT INTO mailserver.virtual_users(domain_id, password, email) VALUES('1', ENCRYPT('$passcorreo', CONCAT('\$6\$', SUBSTRING(SHA(RAND()), -16))), '$respuestacorreo');" | mysql -uroot -p$passmariadb
 echo -e "\nCreando cuenta de correo $respuestacorreo...\n"
 
 
