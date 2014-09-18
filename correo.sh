@@ -685,13 +685,13 @@ echo "A continuación aparecerán los permisos de /var/mail que deberán ser: dr
 echo "Permisos de /var/mail"
 ls -ld /var/mail
 
-#Crearemos  el directorio /var/mail/vhost  y una carpeta para cada dominio creado
+#Crearemos  el directorio /var/mail/vhosts  y una carpeta para cada dominio creado
 
-echo -e "Creando directorio /var/mail/vhost...\n"
+echo -e "Creando directorio /var/mail/vhosts...\n"
 
-mkdir -p /var/mail/vhost/$respuestadominio
+mkdir -p /var/mail/vhosts/$respuestadominio
 
-echo -e "Creado /var/mail/vhost/$respuestadominio\n"
+echo -e "Creado /var/mail/vhosts/$respuestadominio\n"
 
 echo -e "Añadiendo usuaria vmail y grupo vmail con gid 5000... \n"
 groupadd -g 5000 vmail
